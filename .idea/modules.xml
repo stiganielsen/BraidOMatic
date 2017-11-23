@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/16_Intellij.iml" filepath="$PROJECT_DIR$/16_Intellij.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Braiderbot.iml" filepath="$PROJECT_DIR$/Braiderbot.iml" />
     </modules>
   </component>
 </project>

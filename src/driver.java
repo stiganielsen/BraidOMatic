@@ -1,11 +1,70 @@
+import static processing.core.PApplet.cos;
+import static processing.core.PApplet.radians;
+import static processing.core.PApplet.sin;
+import java.util.*;
+
+public class driver
+{
+	public int mod; //number
+	public boolean dir;
+	public float posx;//position
+	public float posy;
+	public int [] att=new int[8];
+	public float [] pox=new float[8];
+	public float [] poy=new float[8];
+	public ArrayList positList = new ArrayList();
+
+	driver(int mo, boolean di, float px, float py, int []at,float []ppx,float []ppy) {
+		mod=mo;
+		dir=di;
+		posx=px;
+		posy=py;
+		att = at;
+		pox = ppx;
+		poy = ppy;
+	}
+
+	public void DrawDrivers()
+	{
+		//drawing the drivers as white ellipses///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		for (int d=0; d<driverList.size (); d++) {
+			driver drLook = (driver) driverList.get(d);
+			noFill();
+			if (drLook.dir) stroke(255);
+			else stroke(200);
+
+			strokeWeight(int(driverSize/17));
+			ellipse(drLook.posx, drLook.posy, driverSize, driverSize); //the white driver main circle
+			fill(110, 110, 255);
+			if (d<10) text(d, drLook.posx-5, drLook.posy+5);
+			else text(d, drLook.posx-9, drLook.posy+5);
+			for (int p=0; p<8; p++) {
+				float slot=p;
+				float xx =drLook.posx+(  ((driverSize/2)-5) * cos(radians(360*(slot/8))));
+				float yy =drLook.posy+(  ((driverSize/2)-5) * sin(radians(360*(slot/8))));
+
+
+				if(drLook.dir){
+					fill(222, (255-(drLook.att[(p-rotation+8)%8]*30)), 0);
+					stroke(drLook.att[(p-rotation+8)%8]*30);}
+				else{
+					fill(222, (255-(drLook.att[(p+rotation+8)%8]*30)), 0);
+					stroke(drLook.att[(p+rotation+8)%8]*30);}
+
+				strokeWeight(int(driverSize/4));
+				point (xx, yy);
+				text(drLook.att[p], xx-5, yy+5);
+				noFill();
+				drLook.pox[drLook.att[p]]=xx;
+				drLook.poy[drLook.att[p]]=yy;
+				// print(" in:"+p+ " at:"+ drLook.att[p] +" x:"+ round(drLook.pox[p]));
+			}//println();
+		}
+	}
+}
+
+/*
 public class driver {
-    int mod; //number
-    boolean dir;
-    float posx;//position
-    float posy;
-    public  int [] att=new int[8];
-    float [] pox=new float[8];
-    float [] poy=new float[8];
 
 
     driver(int mo, boolean di, float px, float py, int []at,float []ppx,float []ppy) {
@@ -23,8 +82,8 @@ public class driver {
 
 }
 
-
-
+*/
+/*
 
     void SuggestDriverLocation(int current ) { //keeps a list of optional locations, starting from x,0 counting clockwise
         optPosList.clear();
@@ -278,42 +337,7 @@ public class driver {
 
 
 
-    //////////////////////////////////////////
-    void DrawDrivers() { //drawing the drivers as white ellipses///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        for (int d=0; d<driverList.size (); d++) {
-            driver drLook = (driver) driverList.get(d);
-            noFill();
-            if (drLook.dir) stroke(255);
-            else stroke(200);
 
-            strokeWeight(int(driverSize/17));
-            ellipse(drLook.posx, drLook.posy, driverSize, driverSize); //the white driver main circle
-            fill(110, 110, 255);
-            if (d<10) text(d, drLook.posx-5, drLook.posy+5);
-            else text(d, drLook.posx-9, drLook.posy+5);
-            for (int p=0; p<8; p++) {
-                float slot=p;
-                float xx =drLook.posx+(  ((driverSize/2)-5) * cos(radians(360*(slot/8))));
-                float yy =drLook.posy+(  ((driverSize/2)-5) * sin(radians(360*(slot/8))));
-
-
-                if(drLook.dir){
-                    fill(222, (255-(drLook.att[(p-rotation+8)%8]*30)), 0);
-                    stroke(drLook.att[(p-rotation+8)%8]*30);}
-                else{
-                    fill(222, (255-(drLook.att[(p+rotation+8)%8]*30)), 0);
-                    stroke(drLook.att[(p+rotation+8)%8]*30);}
-
-                strokeWeight(int(driverSize/4));
-                point (xx, yy);
-                text(drLook.att[p], xx-5, yy+5);
-                noFill();
-                drLook.pox[drLook.att[p]]=xx;
-                drLook.poy[drLook.att[p]]=yy;
-                // print(" in:"+p+ " at:"+ drLook.att[p] +" x:"+ round(drLook.pox[p]));
-            }//println();
-        }
-    }
 
     void ListSwitches (){////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         for (int s=0; s<swiList.size(); s++) {
@@ -359,4 +383,4 @@ public class driver {
             }
             selectedModule=closestMod;
         }
-    }
+    }*/
