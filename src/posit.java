@@ -1,6 +1,6 @@
 public class posit {
-    float posx;
-    float posy;
+    public float posx;
+    public float posy;
     posit(float pox,float poy){
         posx=pox;
         posy=poy;

@@ -1,13 +1,12 @@
 import processing.core.PApplet;
 import processing.core.PFont;
+
 import java.util.*;
 public class MainApp extends PApplet
 {
-	public driver Driver = new driver();
-
 	private PFont metaBold;
-	private ArrayList driverList;
-	private ArrayList optPosList;
+	public ArrayList<driver> driverList =new ArrayList<>();
+	private ArrayList optPosList = new ArrayList();
 	private ArrayList swiList;
 	private ArrayList carList;
 	private int driverSize=100;  //the diameter of a driver
@@ -22,6 +21,7 @@ public class MainApp extends PApplet
 	private int modulesInTracks=25;
 	public int[][] tracks=new int[numberOfTracks][modulesInTracks]; //twelve tracks of up to 12 modules (these are used bidirectionally)
 	public int totalCollisions;
+	Draw draw = new Draw();
 
 	public void settings(){
 		size(900, 900);
@@ -32,16 +32,19 @@ public class MainApp extends PApplet
 		}
 		catch(Exception e)
 		{
-			println(e);
+			//println(e);
 		}
 	}
 
 	public void draw(){
 		ellipseMode(CENTER);
-		background(0);
-		fill(0);
-		rect(0, 0, 600, 600);
-		Driver.DrawDrivers();
+		if(driverList.size() != 1){
+			driverList.add(new driver(this, 1, true, 300, 300, a, ppx, ppy, driverSize,rotation));
+			driverList.get(0).display();
+		}
+		//rect(0, 0, 600, 600);
+		//draw.DrawDrivers(driverList, driverSize,rotation);
+		//driver.DrawDrivers();
 		//SelectClosestModule();
 		//SuggestDriverLocation(selectedModule);
 		//DrawNearestOptionalModule();
@@ -50,16 +53,16 @@ public class MainApp extends PApplet
 		//LocateCars();
 		//DrawCars();
 		//Collision();
+
 	}
 
 	public void setup()
 	{
-		driverList = new ArrayList();
-		optPosList = new ArrayList();
 		swiList = new ArrayList();
 		carList = new ArrayList();
 		//add one driver to start from
-		//driverList.add(new driver(1, true, 300, 300, a, ppx, ppy));
+		print("hello2");
+		background(0);
 		//  swiList.add(new swi(5, 9, 10, 0, 0, 5, true, 0, 0));
 		textSize(16);
 		//LoadTracks();

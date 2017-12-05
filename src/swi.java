@@ -1,12 +1,12 @@
 public class swi {
-    int amoL;
-    int amoR;
-    int bmoL;
-    int bmoR;
-    int pos;
-    boolean rl;
-    float posx;
-    float posy;
+    public int amoL;
+    public int amoR;
+    public int bmoL;
+    public int bmoR;
+    public int pos;
+    public boolean rl;
+    public float posx;
+    public float posy;
     swi ( int amr, int aml,int bmr, int bml, int po, boolean r,float px,float py) {
         amoR=amr;
         amoL=aml;
