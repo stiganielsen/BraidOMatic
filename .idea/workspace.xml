@@ -4,14 +4,13 @@
     <list default="true" id="92e1948c-5f6a-45e7-8796-38e0a13d1751" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/MainApp.class" afterPath="$PROJECT_DIR$/out/production/Braiderbot/MainApp.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/optPos.class" afterPath="$PROJECT_DIR$/out/production/Braiderbot/optPos.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/posit.class" afterPath="$PROJECT_DIR$/out/production/Braiderbot/posit.class" />
-      <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/swi.class" afterPath="$PROJECT_DIR$/out/production/Braiderbot/swi.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/driver.class" afterPath="$PROJECT_DIR$/out/production/Braiderbot/driver.class" />
+      <change beforePath="$PROJECT_DIR$/out/production/Braiderbot/missing" afterPath="$PROJECT_DIR$/out/production/Braiderbot/missing" />
+      <change beforePath="$PROJECT_DIR$/src/Draw.java" afterPath="$PROJECT_DIR$/src/Draw.java" />
       <change beforePath="$PROJECT_DIR$/src/MainApp.java" afterPath="$PROJECT_DIR$/src/MainApp.java" />
       <change beforePath="$PROJECT_DIR$/src/driver.java" afterPath="$PROJECT_DIR$/src/driver.java" />
-      <change beforePath="$PROJECT_DIR$/src/optPos.java" afterPath="$PROJECT_DIR$/src/optPos.java" />
-      <change beforePath="$PROJECT_DIR$/src/posit.java" afterPath="$PROJECT_DIR$/src/posit.java" />
-      <change beforePath="$PROJECT_DIR$/src/swi.java" afterPath="$PROJECT_DIR$/src/swi.java" />
+      <change beforePath="$PROJECT_DIR$/src/methods" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/missing" afterPath="$PROJECT_DIR$/src/missing" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,34 +25,36 @@
       <file leaf-file-name="MainApp.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+            <state relative-caret-position="532">
+              <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2502#2503#0" expanded="true" />
-                <element signature="e#2532#2533#0" expanded="true" />
+                <element signature="e#2442#2443#0" expanded="true" />
+                <element signature="e#2472#2473#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="driver.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="driver.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/driver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="518">
-              <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+            <state relative-caret-position="392">
+              <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Draw.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Draw.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Draw.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="46" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="14">
+              <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#116#117#0" expanded="true" />
+                <element signature="e#133#134#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -62,8 +63,8 @@
       <file leaf-file-name="missing" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/missing">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1806">
-              <caret line="129" column="5" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="129" selection-end-column="5" />
+            <state relative-caret-position="98">
+              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -100,12 +101,16 @@
       <find>StepCarInModulesAndSetSwitches</find>
       <find>DrawDrivers</find>
       <find>strokeWeight</find>
-      <find>SelectClosestModule</find>
       <find>rotation</find>
       <find>swi</find>
       <find>class sw</find>
       <find>DropInDriverModule</find>
       <find>drLook</find>
+      <find>closestOptpos</find>
+      <find>SelectClosestModule</find>
+      <find>selectedModule</find>
+      <find>dist</find>
+      <find>selectedModul</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -124,23 +129,23 @@
         <option value="/usr/share/processing/core/library/core.jar!/processing/core/PFont.class" />
         <option value="$PROJECT_DIR$/src/swi.java" />
         <option value="$PROJECT_DIR$/src/posit.java" />
-        <option value="$PROJECT_DIR$/src/missing" />
         <option value="$PROJECT_DIR$/src/optPos.java" />
         <option value="$PROJECT_DIR$/src/DrawDrivers.java" />
-        <option value="$PROJECT_DIR$/src/Draw.java" />
-        <option value="$PROJECT_DIR$/src/MainApp.java" />
         <option value="$PROJECT_DIR$/src/driver.java" />
+        <option value="$PROJECT_DIR$/src/MainApp.java" />
+        <option value="$PROJECT_DIR$/src/missing" />
+        <option value="$PROJECT_DIR$/src/Draw.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2084" />
-    <option name="y" value="367" />
-    <option name="width" value="1430" />
-    <option name="height" value="779" />
+    <option name="x" value="2344" />
+    <option name="y" value="1224" />
+    <option name="width" value="1072" />
+    <option name="height" value="692" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -153,7 +158,28 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Braiderbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Braiderbot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Braiderbot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Braiderbot" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
@@ -333,13 +359,13 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3284055" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3280307" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17718047" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34064728" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -401,12 +427,60 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/driver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="644">
+          <caret line="46" column="19" lean-forward="true" selection-start-line="46" selection-start-column="19" selection-end-line="46" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/missing">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Draw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="10" column="34" lean-forward="false" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#116#117#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="70">
+          <caret line="5" column="50" lean-forward="false" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainApp.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
           <caret line="8" column="32" lean-forward="false" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2502#2503#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -441,6 +515,8 @@
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#116#117#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -451,8 +527,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2502#2503#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -536,13 +612,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/methods">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/optPos.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -577,6 +646,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///usr/share/processing/core/library/core.jar!/processing/core/PApplet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="377">
+          <caret line="6489" column="0" lean-forward="false" selection-start-line="6489" selection-start-column="0" selection-end-line="6489" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/methods">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="70">
@@ -585,48 +669,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/missing">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1806">
-          <caret line="129" column="5" lean-forward="false" selection-start-line="91" selection-start-column="0" selection-end-line="129" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/share/processing/core/library/core.jar!/processing/core/PApplet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="6489" column="0" lean-forward="false" selection-start-line="6489" selection-start-column="0" selection-end-line="6489" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Draw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="46" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="42" column="40" lean-forward="true" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
+        <state relative-caret-position="532">
+          <caret line="38" column="19" lean-forward="false" selection-start-line="38" selection-start-column="19" selection-end-line="38" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2502#2503#0" expanded="true" />
-            <element signature="e#2532#2533#0" expanded="true" />
+            <element signature="e#2442#2443#0" expanded="true" />
+            <element signature="e#2472#2473#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/driver.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="518">
-          <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+        <state relative-caret-position="392">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/missing">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="98">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Draw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="13" column="29" lean-forward="true" selection-start-line="13" selection-start-column="29" selection-end-line="13" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#116#117#0" expanded="true" />
+            <element signature="e#133#134#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

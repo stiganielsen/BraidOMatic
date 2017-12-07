@@ -1,5 +1,4 @@
 import processing.core.PApplet;
-
 public class driver
 {
 	public int mod; //number
@@ -35,12 +34,25 @@ public class driver
 		parent.strokeWeight((int)size/17);
 		parent.ellipse(posx, posy, size, size);
 		parent.fill(110, 110, 255);
+		WriteNumbers();
 /*
 		if (i<10)
 			text(i, drLook.posx-5, drLook.posy+5);
 		else
 			text(i, drLook.posx-9, drLook.posy+5);*/
 
+	}
+	//Lock the ring into place
+	public void Lock()
+	{
+		dir = true;
+		parent.stroke(255);
+		WriteNumbers();
+	}
+
+	//Write the Numbers around the ring
+	public void WriteNumbers()
+	{
 		for (int p=0; p<8; p++)
 		{
 			float slot=p;
@@ -66,11 +78,6 @@ public class driver
 			poy[att[p]]=yy;
 			// print(" in:"+p+ " at:"+ drLook.att[p] +" x:"+ round(drLook.pox[p]));
 		}
-	}
-	public void Lock()
-	{
-		dir = true;
-		parent.stroke(200);
 	}
 }
 

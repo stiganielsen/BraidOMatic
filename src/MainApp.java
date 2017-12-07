@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 import processing.core.PFont;
-
 import java.util.*;
+
 public class MainApp extends PApplet
 {
 	private PFont metaBold;
@@ -9,7 +9,7 @@ public class MainApp extends PApplet
 	private ArrayList optPosList = new ArrayList();
 	private ArrayList swiList;
 	private ArrayList carList;
-	private int driverSize=100;  //the diameter of a driver
+	public int driverSize=100;  //the diameter of a driver
 	private int closestOptpos=0;
 	private int selectedModule=0;
 	private int altModule=0;
@@ -21,7 +21,7 @@ public class MainApp extends PApplet
 	private int modulesInTracks=25;
 	public int[][] tracks=new int[numberOfTracks][modulesInTracks]; //twelve tracks of up to 12 modules (these are used bidirectionally)
 	public int totalCollisions;
-	Draw draw = new Draw();
+	Draw drawC;
 
 	public void settings(){
 		size(900, 900);
@@ -38,16 +38,10 @@ public class MainApp extends PApplet
 
 	public void draw(){
 		ellipseMode(CENTER);
-		if(driverList.size() != 1){
-			driverList.add(new driver(this, 1, true, 300, 300, a, ppx, ppy, driverSize,rotation));
-			driverList.get(0).display();
-		}
 		//rect(0, 0, 600, 600);
-		//draw.DrawDrivers(driverList, driverSize,rotation);
-		//driver.DrawDrivers();
-		//SelectClosestModule();
-		//SuggestDriverLocation(selectedModule);
-		//DrawNearestOptionalModule();
+		selectedModule = drawC.SelectClosestModule(driverList);
+		drawC.SuggestDriverLocation(selectedModule,driverList,optPosList);
+		drawC.DrawNearestOptionalModule();
 		//DrawCurrentSelectedModule();
 		//DrawSwitches();
 		//LocateCars();
@@ -60,11 +54,14 @@ public class MainApp extends PApplet
 	{
 		swiList = new ArrayList();
 		carList = new ArrayList();
+		drawC = new Draw(this);
 		//add one driver to start from
-		print("hello2");
 		background(0);
 		//  swiList.add(new swi(5, 9, 10, 0, 0, 5, true, 0, 0));
 		textSize(16);
+		driverList.add(new driver(this, 1, true, 300, 300, a, ppx, ppy, driverSize,rotation));
+		driverList.get(0).display();
+
 		//LoadTracks();
 	}
 
@@ -97,6 +94,7 @@ public class MainApp extends PApplet
 		}*/
 		if (mouseButton == LEFT)
 		{
+
 			//DropInDriverModule();
 		}
 	}
