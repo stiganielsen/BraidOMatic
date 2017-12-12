@@ -39,9 +39,14 @@ public class MainApp extends PApplet
 	public void draw(){
 		ellipseMode(CENTER);
 		//rect(0, 0, 600, 600);
+		background(0);
+		for(driver d: driverList)
+		{
+			d.display();
+		}
 		selectedModule = drawC.SelectClosestModule(driverList);
 		drawC.SuggestDriverLocation(selectedModule,driverList,optPosList);
-		drawC.DrawNearestOptionalModule();
+		drawC.DrawNearestOptionalModule(driverList,optPosList,driverSize,closestOptpos);
 		//DrawCurrentSelectedModule();
 		//DrawSwitches();
 		//LocateCars();
@@ -95,7 +100,7 @@ public class MainApp extends PApplet
 		if (mouseButton == LEFT)
 		{
 
-			//DropInDriverModule();
+			drawC.DropInDriverModule();
 		}
 	}
 

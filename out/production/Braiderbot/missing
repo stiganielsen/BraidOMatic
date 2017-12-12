@@ -1,54 +1,11 @@
 /*
-    void SuggestDriverLocation(int current ) { //keeps a list of optional locations, starting from x,0 counting clockwise
-        optPosList.clear();
-        //get the location of the driver in question -the last driver - and later on any driver
-        driver drLook = (driver) driverList.get(current); //later get a specific clicked one...
-        float CCdist= sqrt ( (driverSize/2)*(driverSize/2)+(driverSize/2)*(driverSize/2)); //just finding the radial distance to surrounding center points.
-
-        optPosList.add(new optPos(drLook.posx+driverSize, drLook.posy, true, true)); //0
-        optPosList.add(new optPos(drLook.posx+CCdist, drLook.posy+CCdist, true, true)); //1
-        optPosList.add(new optPos(drLook.posx, drLook.posy+driverSize, true, true));//2
-        optPosList.add(new optPos(drLook.posx-CCdist, drLook.posy+CCdist, true, true));//3
-        optPosList.add(new optPos(drLook.posx-driverSize, drLook.posy, true, true));//4
-        optPosList.add(new optPos(drLook.posx-CCdist, drLook.posy-CCdist, true, true));//5
-        optPosList.add(new optPos(drLook.posx, drLook.posy-driverSize, true, true)); //6
-        optPosList.add(new optPos(drLook.posx+CCdist, drLook.posy-CCdist, true, true));//7
-    }
 
     /////////////////////////////////////
     void RotateOne(){
         rotation++;
         if(rotation>7) rotation=0;
     }
-    //////////////////////////////////////////
-    void DrawNearestOptionalModule() { //Highlight nearest optional place in GREEN color or RED if not viable location/////////////////////////////////////////////////////////////////////////
-        float distance=10000;
-        float distanceNear=10000;
-        strokeWeight(3);
-        stroke(255);
-        for (int i = 0; i<optPosList.size (); i++) {
-            optPos opLook = (optPos) optPosList.get(i);
 
-            for (int j = 0; j<driverList.size (); j++) {
-                driver drLook = (driver) driverList.get(j);
-                float distClose = dist(opLook.posx, opLook.posy, drLook.posx, drLook.posy);
-                if (distClose<1) {
-                    opLook.taken=false;
-                }
-                if (distClose<driverSize) opLook.viable=false; //if another module is too close, the place is not viable
-            }
-
-            distance= dist(mouseX, mouseY, opLook.posx, opLook.posy-driverSize);
-            if (distanceNear>distance) {
-                distanceNear=distance;
-                closestOptpos=i;
-            }
-        }
-        optPos opNear = (optPos) optPosList.get(closestOptpos);
-        if (opNear.taken && opNear.viable) stroke(0, 200, 0);
-        else stroke(222, 0, 0);
-        ellipse(opNear.posx, opNear.posy, driverSize, driverSize);
-    }
     //////////////////////////////////////////
     void DropInDriverModule() {//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         optPos opPlace = (optPos) optPosList.get(closestOptpos);

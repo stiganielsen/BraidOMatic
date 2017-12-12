@@ -46,31 +46,35 @@ public class Draw
 	}
 
 	//Highlight nearest optional place in GREEN color or RED if not viable location
-	void DrawNearestOptionalModule()
+	void DrawNearestOptionalModule(ArrayList<driver> driverList, ArrayList<optPos> optPosList, int driverSize, int closestOptpos)
 	{
 		float distance=10000;
 		float distanceNear=10000;
 		parent.strokeWeight(3);
 		parent.stroke(255);
-		for (int i = 0; i<optPosList.size (); i++) {
-			optPos opLook = (optPos) optPosList.get(i);
-
-			for (int j = 0; j<driverList.size (); j++) {
-				driver drLook = (driver) driverList.get(j);
+		for (int i = 0; i<optPosList.size (); i++)
+		{
+			optPos opLook = optPosList.get(i);
+			for (int j = 0; j<driverList.size (); j++)
+			{
+				driver drLook = driverList.get(j);
 				float distClose = PApplet.dist(opLook.posx, opLook.posy, drLook.posx, drLook.posy);
-				if (distClose<1) {
+				if (distClose<1)
+				{
 					opLook.taken=false;
 				}
-				if (distClose<driverSize) opLook.viable=false; //if another module is too close, the place is not viable
+				//if another module is too close, the place is not viable
+				if (distClose<drLook.size)
+					opLook.viable=false;
 			}
-
 			distance= PApplet.dist(parent.mouseX, parent.mouseY, opLook.posx, opLook.posy-driverSize);
-			if (distanceNear>distance) {
+			if (distanceNear>distance)
+			{
 				distanceNear=distance;
 				closestOptpos=i;
 			}
 		}
-		optPos opNear = (optPos) optPosList.get(closestOptpos);
+		optPos opNear = optPosList.get(closestOptpos);
 		if (opNear.taken && opNear.viable)
 			parent.stroke(0, 200, 0);
 		else
@@ -78,7 +82,7 @@ public class Draw
 		parent.ellipse(opNear.posx, opNear.posy, driverSize, driverSize);
 	}
 
-/*
+
 	public void DropInDriverModule()
 	{
 		optPos opPlace = (optPos) optPosList.get(closestOptpos);
@@ -90,10 +94,10 @@ public class Draw
 			driver drSele = (driver) driverList.get(selectedModule); //fetch the selected/'building upon' module
 			boolean directionThisMod=true;
 			int starta= drSele.att[closestOptpos];  //this is the previous drivers position that we attach to.
-			println("starta: "+starta);
+			parent.println("starta: "+starta);
 			if (drSele.dir) directionThisMod=false; //switch direction of the next module if the drSele is opposite.
 			if (directionThisMod) {  //turning CV so the next module must be numbered oppositely direction CCV
-				println("direction of this module is TRUE therefore going CV");
+				parent.println("direction of this module is TRUE therefore going CV");
 				for (int a=0; a<8; a++)
 				{
 					at[(closestOptpos+a+4)%8]=(a+starta)%8;
@@ -101,7 +105,7 @@ public class Draw
 			}
 			else
 			{
-				println("direction of This module is FALSE going CCV now");
+				parent.println("direction of This module is FALSE going CCV now");
 				int cnt=0;
 				for (int a=8; a>0; a--)
 				{
@@ -109,16 +113,16 @@ public class Draw
 					cnt++;
 				}
 			}
-			println(at);
+			parent.println(at);
 			driverList.add(new driver (1, directionThisMod, opPlace.posx, opPlace.posy, at,ppx,ppy));
 			driver drTjek = (driver) driverList.get(driverList.size()-1); //fetch the selected/'building upon' module
 			for (int i =0; i<8; i++) {
-				println("abspos: "+i+" pos:"+drTjek.att[i]);
+				parent.println("abspos: "+i+" pos:"+drTjek.att[i]);
 			}
 			FindNeighbourModules(driverList.size()-1);  //calling the switch placer on the latest module
 		} else {
-			println("This location is not allowed");
-			println("selected Module is now: "+altModule);
+			parent.println("This location is not allowed");
+			parent.println("selected Module is now: "+altModule);
 		}
-	}*/
+	}
 }
