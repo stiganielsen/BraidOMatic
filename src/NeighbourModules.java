@@ -1,6 +1,6 @@
 public class NeighbourModules
 {
-	void FindNeighbourModules(int lookFrom)
+/*	void FindNeighbourModules(int lookFrom)
 	{
 		//lists and prints the modules that are neighbours to the input 'lookFrom' module
 		driver drFrom = (driver) driverList.get(lookFrom);
@@ -153,5 +153,5 @@ public class NeighbourModules
 				}
 			}
 		}
-	}
+	}*/
 }

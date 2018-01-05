@@ -8,6 +8,7 @@ public class Draw
 	{
 		parent = p;
 	}
+
 	//Select the closest module from the driverList related to the mouse position
 	int SelectClosestModule(ArrayList<driver> driverList)
 	{
@@ -81,7 +82,6 @@ public class Draw
 			parent.stroke(222, 0, 0);
 		parent.ellipse(opNear.posx, opNear.posy, driverSize, driverSize);
 	}
-
 
 	public void DropInDriverModule()
 	{

@@ -52,7 +52,6 @@ public class MainApp extends PApplet
 		//LocateCars();
 		//DrawCars();
 		//Collision();
-
 	}
 
 	public void setup()
@@ -66,7 +65,6 @@ public class MainApp extends PApplet
 		textSize(16);
 		driverList.add(new driver(this, 1, true, 300, 300, a, ppx, ppy, driverSize,rotation));
 		driverList.get(0).display();
-
 		//LoadTracks();
 	}
 
@@ -100,7 +98,7 @@ public class MainApp extends PApplet
 		if (mouseButton == LEFT)
 		{
 
-			drawC.DropInDriverModule();
+			//drawC.DropInDriverModule();
 		}
 	}
 
