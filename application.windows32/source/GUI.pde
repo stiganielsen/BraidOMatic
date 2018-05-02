@@ -1,5 +1,5 @@
 void mouseReleased() {
-  if (mouseButton==RIGHT && driverList.size()-1!=selectedModule) { //if its a right mousebutton then the selected module is deleted
+  if (mouseButton==RIGHT && driverList.size()!=selectedModule && driverList.size()!=1) { //-1  if its a right mousebutton then the selected module is deleted
     if (mode==1) driverList.remove(selectedModule);
     else if (mode==2) TrackModuleRemove();
     else if (mode==3) carAdd(-1);

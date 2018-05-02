@@ -128,7 +128,7 @@ void  DrawTracks() {  //draws the lines from module center to module center (act
 
             float factor= 0.1;
             int movex=width-100;
-            int movey=100+j*100;
+            int movey=2+j*100;
            
             strokeWeight(2);
             line( drLookBack.posx*factor+movex, drLookBack.posy*factor+movey, drLook.posx*factor+movex, drLook.posy*factor+movey); // drLookBack.posx, drLookBack.posy

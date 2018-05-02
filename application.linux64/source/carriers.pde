@@ -46,11 +46,24 @@ boolean trackContainsModule(int module) {
 /////////////////////////////////////////////////////////////////////
 void carAdd(int dir) {
   if (trackContainsModule(selectedModule)) {
-
-    carList.add(new car (carList.size()+1, selectedModule, SelectClosestPosition(), 0, 0, curDrawTrack, dir, 1, 2, trackColors[curDrawTrack]));
-    print("calling addtrace");
-     addTraceToCar(carList.size());
-     //  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+    int selPos=SelectClosestPosition();
+    boolean doRemove=false;
+    int carToRemove=-1;
+    for (int i =0; i<carList.size(); i++) { //running through cars to find out if there is a car in the position already
+      car carLook = (car) carList.get(i);
+      if (carLook.module==selectedModule&&carLook.pos==selPos)
+      { 
+       doRemove=true;
+       carToRemove=i;
+       println("Car: "+i+" in mod: "+selectedModule+" pos: "+selPos);
+      }
+      }
+    if(doRemove) carList.remove(carToRemove);
+     carList.add(new car (carList.size()+1, selectedModule, selPos, 0, 0, curDrawTrack, dir, 1, 2, trackColors[curDrawTrack]));
+     
+    //print("calling addtrace");
+    addTraceToCar(carList.size());
+    //  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
     IniCars();
   } else {
     println("The module is not part of the track, try another");
@@ -58,28 +71,28 @@ void carAdd(int dir) {
     fill(255, 0, 0);
     noStroke();
     ellipse(drLook.pox[SelectClosestPosition()], drLook.poy[SelectClosestPosition()], 12, 12);
-   
   }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 void InsertCars() {
   for (int i=2; i<modulesInTracks; i+=2) //going up to the 25 as max numbers of a track definition
   {
+
     if (tracks[curDrawTrack][i]!=-3 && tracks[curDrawTrack][i]!=-1) {
       print("placing into track: "+ tracks[curDrawTrack][i]);
       int j=curDrawTrack;
-     
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], curDrawTrack, 0, 0, j, 1, 1, 2,  trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+
+      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], curDrawTrack%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
       addTraceToCar(carList.size());
-     
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+4)%8, 0, 0, j, 1, 1, 2,  trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+
+      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+4)%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
       addTraceToCar(carList.size());
-    
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+2)%8, 0, 0, j, -1, 1, 2,  trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-    addTraceToCar(carList.size());
-    
-    carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+6)%8, 0, 0, j, -1, 1, 2,  trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-   addTraceToCar(carList.size());
+
+      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+2)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+      addTraceToCar(carList.size());
+
+      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+6)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+      addTraceToCar(carList.size());
     }
   }
   IniCars();
@@ -105,7 +118,7 @@ void IniCars() {  //this is run once from the Setup()
         carLook.nxtmod=tracks[carLook.track][i+carLook.dir];
       }
     }
-   // println("cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
+    // println("cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
   }
 }
 ///////////////////////////////////////////////////////
@@ -113,9 +126,9 @@ void moveCarsToTrack(int fromTrack) { //cars are moved from their current track 
   for (int i=0; i<carList.size(); i++) {
     car carLook=(car) carList.get(i);
     boolean carIsInTrack = false;
-    for(int m=0;m<modulesInTracks;m++){
-       if(tracks[curDrawTrack][m]==carLook.module) carIsInTrack=true;
-     }
+    for (int m=0; m<modulesInTracks; m++) {
+      if (tracks[curDrawTrack][m]==carLook.module) carIsInTrack=true;
+    }
     if (carLook.track==fromTrack && carIsInTrack) 
     {
       carLook.track=curDrawTrack;
@@ -126,7 +139,7 @@ void moveCarsToTrack(int fromTrack) { //cars are moved from their current track 
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 void EndTrackHandle () { //we have aligned the current location with track of the driver already. carLook.trpos is correct
- boolean doPrint=false;
+  boolean doPrint=false;
   for (int c = 0; c < carList.size (); c++) { //take every car
     car carLook = (car) carList.get(c);
 
@@ -137,20 +150,20 @@ void EndTrackHandle () { //we have aligned the current location with track of th
       int i=23;
       while (tracks[carLook.track][i] != -1) { 
         i--; 
-       if(doPrint) println(i);
+        if (doPrint) println(i);
       } //not going so far as to look at the last one
       carLook.trpos=i;//+carLook.dir;
       carLook.nxtmod=tracks[carLook.track][carLook.trpos+carLook.dir];
-      if(doPrint)print("StartOfTrack: "+ carLook.name );
-     if(doPrint)println(" cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
+      if (doPrint)print("StartOfTrack: "+ carLook.name );
+      if (doPrint)println(" cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
     } else if (carLook.nxtmod==-1 && carLook.dir==1) { //means its the end of the track (as noted in the file) 
       //carLook.dir=-1; //switch direction
       //and take the second (or third value in the tracks array
       carLook.nxtmod=tracks[carLook.track][2];  /////////////////////////////////Start from the beginning of the track (in this case that is index 2 cause [0]:-3 and [1]:)
       carLook.trpos=1;                                     ////////////////////////////////////////////////HERE MAY CAUSE A BUG
-      if(doPrint)println("EndOfTrack: "+"nxt: "+carLook.nxtmod);
+      if (doPrint)println("EndOfTrack: "+"nxt: "+carLook.nxtmod);
     } else { 
-      if(doPrint)println("NotAtEnd: "+ carLook.name + " cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
+      if (doPrint)println("NotAtEnd: "+ carLook.name + " cMod "+ carLook.module + " pos: "+ carLook.pos + " dir: "+ carLook.dir + " trpos: " +carLook.trpos+" nxtModule: "+ carLook.nxtmod);
     }
   }
 }
@@ -181,8 +194,8 @@ void StepCarInModulesAndSetSwitches () {////////////////////////////////////////
           if (hasSwitched==false) { //to make sure we stay in the module
             if (swiLook.amoL==cMod) swiLook.rl=false;
             else if (swiLook.amoR==cMod) swiLook.rl=true;
-      
-          //  println("inside 'hasSwitched for the a side");
+
+            //  println("inside 'hasSwitched for the a side");
           }
         } //amol
         if (swiLook.bmoL==cMod || swiLook.bmoR == cMod) { //to avoid an ipossible jump across the switch
@@ -199,7 +212,7 @@ void StepCarInModulesAndSetSwitches () {////////////////////////////////////////
           if (hasSwitched==false) {  //to make sure we stay in the module
             if (swiLook.bmoL==cMod) swiLook.rl=false;
             else if (swiLook.bmoR==cMod) swiLook.rl=true;
-           // println("inside 'hasSwitched for the b side");
+            // println("inside 'hasSwitched for the b side");
           }
         }//bmol
 
