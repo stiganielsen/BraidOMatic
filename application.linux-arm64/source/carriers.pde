@@ -1,4 +1,4 @@
-//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 
 //all drivers have three types of 'positions' absolute or static, that is starting from most right (+x,0),
 // and rotated which is the ((static+offset)*direction) given by the connections to other drivers, 
