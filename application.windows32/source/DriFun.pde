@@ -356,7 +356,7 @@ void SaveModulePositions() {
     }
     lines[i] = int(i)+","+int(drLook.dir)+","+int(drLook.posx) + "," + int(drLook.posy) + "," + stratt  + strppx  + strppy ;
   }
-  saveStrings("ModulePositions"+reload+".txt", lines);
+  saveStrings(dataPath("ModulePositions"+reload+".txt"), lines);
   SaveTracks();
   reconfigModules=false; //Switching to draw the tracks
   traceTracks=true;     //switching to draw the tracks

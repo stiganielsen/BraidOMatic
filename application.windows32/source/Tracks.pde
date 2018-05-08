@@ -68,7 +68,7 @@ void SaveTracks() {
       }
     }
   }
-  saveStrings("TracksDrawn"+reload+".txt", lines);
+  saveStrings(dataPath("TracksDrawn"+reload+".txt"), lines);
 }
 //////////////////////////////////////////////////
 boolean connectionTest(int driA, int driB) { //check if two drivers are connected

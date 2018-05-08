@@ -34,7 +34,7 @@ float [] ppx={0,1,2,3,4,5,6,7};
 float [] ppy={0,1,2,3,4,5,6,7};
 int rotation = 0;
 int numberOfTracks=9;
-int modulesInTracks=25;
+int modulesInTracks=35;
 int [][] tracks = new int [numberOfTracks][modulesInTracks]; //twelve tracks of up to 12 modules (these are used bidirectionally)
 int totalCollisions;
 boolean reconfigModules=true;
@@ -102,7 +102,7 @@ public void draw() {
   fill(0);
   newLine=20;
   fill(255);
-    printTextCommands();  //<>//
+    printTextCommands(); 
 if (mode==1){
 
   noFill();
@@ -131,7 +131,7 @@ else if(mode==4){
   DrawSwitches();
   LocateCars();
   DrawCars();
-  Collision(); //<>//
+  Collision();
 }
 class driver {
   int mod; //number 
@@ -536,7 +536,7 @@ public void SaveModulePositions() {
     }
     lines[i] = PApplet.parseInt(i)+","+PApplet.parseInt(drLook.dir)+","+PApplet.parseInt(drLook.posx) + "," + PApplet.parseInt(drLook.posy) + "," + stratt  + strppx  + strppy ;
   }
-  saveStrings("ModulePositions"+reload+".txt", lines);
+  saveStrings(dataPath("ModulePositions"+reload+".txt"), lines);
   SaveTracks();
   reconfigModules=false; //Switching to draw the tracks
   traceTracks=true;     //switching to draw the tracks
@@ -615,7 +615,7 @@ public void mouseReleased() {
      lines[0]=""+swiMap[0];
       for(int i=1;i<swiMap.length;i++){
       lines[0]=lines[0]+","+swiMap[i];}
-    saveStrings("MappingSwitches"+reload+".txt", lines); 
+    saveStrings(dataPath("MappingSwitches"+reload+".txt"), lines); 
     
   }
   }
@@ -1054,7 +1054,7 @@ public void SaveTracks() {
       }
     }
   }
-  saveStrings("TracksDrawn"+reload+".txt", lines);
+  saveStrings(dataPath("TracksDrawn"+reload+".txt"), lines);
 }
 //////////////////////////////////////////////////
 public boolean connectionTest(int driA, int driB) { //check if two drivers are connected
@@ -1197,7 +1197,7 @@ public void  printTracks() {
  -1,16,1,2,3,4,5,6,7,8,1,16,15,14,13,12,11,10,9,-1
  
  */
-//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 
 //all drivers have three types of 'positions' absolute or static, that is starting from most right (+x,0),
 // and rotated which is the ((static+offset)*direction) given by the connections to other drivers, 
@@ -1577,7 +1577,7 @@ print(tracesList.size()+" traces");
      }
       lines[t]=PApplet.parseInt(t)+","+strposx+","+strposy+","+strposz;//+","+strtra;
       }
-       saveStrings("TracesOutput.txt", lines);
+       saveStrings(dataPath("TracesOutput.txt"), lines);
 }
   public void settings() {  size(900, 900); }
   static public void main(String[] passedArgs) {
