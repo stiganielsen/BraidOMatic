@@ -70,5 +70,5 @@ print(tracesList.size()+" traces");
      }
       lines[t]=int(t)+","+strposx+","+strposy+","+strposz;//+","+strtra;
       }
-       saveStrings("TracesOutput.txt", lines);
+       saveStrings(dataPath("TracesOutput.txt"), lines);
 }

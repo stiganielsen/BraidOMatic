@@ -16,7 +16,7 @@ float [] ppx={0,1,2,3,4,5,6,7};
 float [] ppy={0,1,2,3,4,5,6,7};
 int rotation = 0;
 int numberOfTracks=9;
-int modulesInTracks=25;
+int modulesInTracks=35;
 int [][] tracks = new int [numberOfTracks][modulesInTracks]; //twelve tracks of up to 12 modules (these are used bidirectionally)
 int totalCollisions;
 boolean reconfigModules=true;
@@ -84,7 +84,7 @@ void draw() {
   fill(0);
   newLine=20;
   fill(255);
-    printTextCommands();  //<>//
+    printTextCommands(); 
 if (mode==1){
 
   noFill();
@@ -113,5 +113,5 @@ else if(mode==4){
   DrawSwitches();
   LocateCars();
   DrawCars();
-  Collision(); //<>//
+  Collision();
 }

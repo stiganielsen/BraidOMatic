@@ -20,7 +20,7 @@ void mouseReleased() {
      lines[0]=""+swiMap[0];
       for(int i=1;i<swiMap.length;i++){
       lines[0]=lines[0]+","+swiMap[i];}
-    saveStrings("MappingSwitches"+reload+".txt", lines); 
+    saveStrings(dataPath("MappingSwitches"+reload+".txt"), lines); 
     
   }
   }
