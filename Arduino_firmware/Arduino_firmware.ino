@@ -54,12 +54,12 @@ int inComing = 0;
 String servoSetTo = "";
 String servoSetOld = "";
 
-//number of pwm boards
+//number of Servers boards
 const int Servocount = 32;
 //Buffer for the steps
 const int Stepbuffer = 100;
 char strs[Stepbuffer][Servocount];
-char strsMap[17 + 1];
+char strsMap[Servocount];
 String inStringPos = "";
 String inStringSer = "";
 String inStringSerMap = "";
