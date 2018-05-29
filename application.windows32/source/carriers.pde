@@ -1,4 +1,4 @@
-//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
+//a car's purpose is to move about the configuration according to its path. Any one driver will at all times stay in the position it starts in. so a car starting in a position 2 will remain in a dynamic position two.. //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>// //<>//
 
 //all drivers have three types of 'positions' absolute or static, that is starting from most right (+x,0),
 // and rotated which is the ((static+offset)*direction) given by the connections to other drivers, 
@@ -53,20 +53,22 @@ void carAdd(int dir) {
       car carLook = (car) carList.get(i);
       if (carLook.module==selectedModule&&carLook.pos==selPos)
       { 
-       doRemove=true;
-       carToRemove=i;
-       println("Car: "+i+" in mod: "+selectedModule+" pos: "+selPos);
+        doRemove=true;
+        carToRemove=i;
+        println("Car: "+i+" in mod: "+selectedModule+" pos: "+selPos);
       }
-      }
-    if(doRemove) carList.remove(carToRemove);
-     carList.add(new car (carList.size()+1, selectedModule, selPos, 0, 0, curDrawTrack, dir, 1, 2, trackColors[curDrawTrack]));
-     
+    }
+    if (doRemove) carList.remove(carToRemove);
+    carList.add(new car (carList.size()+1, selectedModule, selPos, 0, 0, curDrawTrack, dir, 1, 2, trackColors[curDrawTrack]));
+    if (dir>0) Splash("module going + direction on track"+ curDrawTrack);
+    else Splash("module going - direction on track"+ curDrawTrack);
     //print("calling addtrace");
     addTraceToCar(carList.size());
     //  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
     IniCars();
   } else {
     println("The module is not part of the track, try another");
+    Splash("The module not part of the track, change track (scroll) or try another module");
     driver drLook = (driver) driverList.get(selectedModule);
     fill(255, 0, 0);
     noStroke();
@@ -75,24 +77,25 @@ void carAdd(int dir) {
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 void InsertCars() {
-  for (int i=2; i<modulesInTracks; i+=2) //going up to the 25 as max numbers of a track definition
+  for (int i=2; i<modulesInTracks; i=i+2) //going up to the 25 as max numbers of a track definition
   {
 
     if (tracks[curDrawTrack][i]!=-3 && tracks[curDrawTrack][i]!=-1) {
       print("placing into track: "+ tracks[curDrawTrack][i]);
       int j=curDrawTrack;
 
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], curDrawTrack%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-      addTraceToCar(carList.size());
+        carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+1)%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+        addTraceToCar(carList.size());
 
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+4)%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-      addTraceToCar(carList.size());
+        carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+3)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+        addTraceToCar(carList.size());
+      
+      //  carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+5)%8, 0, 0, j, 1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+      //  addTraceToCar(carList.size());
 
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+2)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-      addTraceToCar(carList.size());
-
-      carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+6)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
-      addTraceToCar(carList.size());
+      //  carList.add(new car (carList.size()+1, tracks[curDrawTrack][i], (curDrawTrack+7)%8, 0, 0, j, -1, 1, 2, trackColors[curDrawTrack]));//  car(int na, int mo, int po, float pox, float poy, int tra, int di, int nxtm, int trp, color co) {
+       // addTraceToCar(carList.size());
+      
     }
   }
   IniCars();
@@ -281,6 +284,7 @@ void Collision() {//////////////////////////////////////////////////////////////
                 //println("COLLISSION on A-side");
                 carList.remove(j);
                 println("COLLISION, car: "+carLookI.name+" and: "+carLookJ.name+"crashed on module: "+carLookJ.module+" pos: "+carLookJ.pos+" totalCollisions:"+totalCollisions+" totalLeft: "+carList.size()+".....................................C");
+                Splash("COLLISION in module: "+carLookJ.module+" position: "+carLookJ.pos+"");
               }
             }
           }
@@ -295,6 +299,7 @@ void Collision() {//////////////////////////////////////////////////////////////
                 println("COLLISSION on A-side");
                 carList.remove(j);
                 println("COLLISION, car: "+carLookI.name+" and: "+carLookJ.name+"crashed on module: "+carLookJ.module+" pos: "+carLookJ.pos+" totalCollisions:"+totalCollisions+" totalLeft: "+carList.size()+".....................................C");
+                Splash("COLLISION");
               }
             }
           }

@@ -38,6 +38,7 @@ void TrackModuleAdd() {//adds a track number to the active instance[n] of the do
     printTracks();
   } else { 
     println("This module is not connected to the previous, plz connect the inbetween");
+    Splash("not connected");
   }
 }
 ////////////////////////////////////////////////////
@@ -114,13 +115,16 @@ void  DrawTracks() {  //draws the lines from module center to module center (act
               line( drLookBack.posx, drLookBack.posy+offset, drLook.posx, drLook.posy+offset); 
 
               if (tracks[j][i+1]==-1&&connectionTest(tracks[j][i], tracks[j][2])) {
-                ;
-                textOnScreen("Track "+j+" CLOSED");
+                textOnScreen("Track "+j+" CLOSED");;
+                if(mode==2) Splash("CLOSED");
                 driver drLookFirst = (driver) driverList.get(tracks[j][2]);
                 stroke(0, 110, 0);
                 line(drLook.posx, drLook.posy, drLookFirst.posx, drLookFirst.posy);
                  stroke( trackColors[j]);
-              } else if (tracks[j][i+1]==-1) textOnScreen("Track "+j+" NOT closed");
+              } else if (tracks[j][i+1]==-1){ 
+              textOnScreen("Track "+j+" NOT closed"); 
+            if(mode==2) Splash("OPEN track");
+             }
             } else { 
               stroke(130); 
               strokeWeight(3);

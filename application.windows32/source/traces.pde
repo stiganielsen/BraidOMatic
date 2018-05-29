@@ -59,16 +59,16 @@ print(tracesList.size()+" traces");
      trace traLook=(trace) tracesList.get(t);
      String strposx="";
      String strposy="";
-     String strposz="";
-    // String strtra="";
+  
      for(int i=0;i<200;i++){
+       if(traLook.poy[i]!=0){
         strposx=strposx.concat(";"+ Integer.toString(traLook.pox[i]));
         strposy=strposy.concat(";"+ Integer.toString(traLook.poy[i]));
-        strposz=strposz.concat(";"+ Integer.toString(i));
-       
+        //strposz=strposz.concat(";"+ Integer.toString(i));
+       }
        // strtra=strtra.concat(";"+ Integer.toString(traLook.tra[i]));
      }
-      lines[t]=int(t)+","+strposx+","+strposy+","+strposz;//+","+strtra;
+      lines[t]=","+strposx+","+strposy;//+","+strtra;
       }
        saveStrings(dataPath("TracesOutput.txt"), lines);
 }
