@@ -54,12 +54,12 @@ int inComing = 0;
 String servoSetTo = "";
 String servoSetOld = "";
 
-//number of Servers boards
+//number of pwm boards
 const int Servocount = 32;
 //Buffer for the steps
 const int Stepbuffer = 100;
 char strs[Stepbuffer][Servocount];
-char strsMap[Servocount];
+char strsMap[17 + 1];
 String inStringPos = "";
 String inStringSer = "";
 String inStringSerMap = "";
@@ -74,7 +74,7 @@ int newPos = 0;
 
 //Offset of the gears rotation position
 //Negative number moves the gears forward. closer to 0 moves gears backwards.
-int positionOffset = -1000; //-1400SETTING THE ENCODER POSITION IN RELATION TO POS 1
+int positionOffset = -1200; //-1400SETTING THE ENCODER POSITION IN RELATION TO POS 1
 
 void setup() 
 {
@@ -110,8 +110,10 @@ void setup()
 
 	digitalWrite(X_DIR_PIN, LOW); //set direction opposite
 	digitalWrite(Y_DIR_PIN, LOW); //set direction opposite
+	digitalWrite(Z_DIR_PIN, LOW); //set direction opposite
 	digitalWrite(X_ENABLE_PIN, LOW);
 	digitalWrite(Y_ENABLE_PIN, LOW);
+	digitalWrite(Z_ENABLE_PIN, LOW);
 
 	//Forloop may not be needed
 	for (int i = 0; i < 680; i++) 
@@ -133,8 +135,9 @@ void setup()
 	testServos("01010101010101010101010101010101");
 	servos();delay(500);
 	testServos("111111111111111111111111111111");
-	delay(100); tone(BEEP_PIN, 4000, 249);
-
+	delay(100); 
+	tone(BEEP_PIN, 4000, 249);
+pal
 	while (resetpos != 1) 
 	{
 		moveStepper();
@@ -145,6 +148,7 @@ void setup()
 	Serial.println(globalPos % 8);
 	digitalWrite(X_ENABLE_PIN, HIGH);//motors off
 	digitalWrite(Y_ENABLE_PIN, HIGH);//motors off
+	digitalWrite(Z_ENABLE_PIN, HIGH);//motors off
 	cntRevolution = pulseperrevolution + positionOffset;
 	goToPos = 0;	
 }
@@ -166,6 +170,7 @@ void loop ()
 		delay(100);
 		digitalWrite(X_ENABLE_PIN, HIGH);
 		digitalWrite(Y_ENABLE_PIN, HIGH);
+		digitalWrite(Z_ENABLE_PIN, HIGH);
 	}
 }
 
@@ -173,6 +178,7 @@ void drive()
 {
 	digitalWrite(X_ENABLE_PIN, LOW);
 	digitalWrite(Y_ENABLE_PIN, LOW);
+	digitalWrite(Z_ENABLE_PIN, LOW);
 	moveStepper();
 }
 
@@ -188,12 +194,14 @@ void moveStepper()
 		{ //turn off
 			digitalWrite(X_STEP_PIN, LOW);
 			digitalWrite(Y_STEP_PIN, HIGH);
+			digitalWrite(Z_STEP_PIN, LOW);	
 			on = false;
 		}
 		else
 		{ //turn on
 			digitalWrite(X_STEP_PIN, HIGH);
 			digitalWrite(Y_STEP_PIN, LOW);
+			digitalWrite(Z_STEP_PIN, HIGH);
 			on = true;
 		}
 	}
@@ -336,4 +344,5 @@ void interruptD()
 	else 
 		cntRevolution = cntRevolution + (pulseperrevolution - remainder); //going under
 }
+
 
