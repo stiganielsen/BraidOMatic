@@ -11,10 +11,10 @@
 #define Y_ENABLE_PIN       A2
 #define Z_STEP_PIN         46
 #define Z_DIR_PIN          48
-#define Z_ENABLE_PIN       A8
+#define Z_ENABLE_PIN       62
 //Pin for the buzzer
 #define BEEP_PIN           42
-
+	
 //PVM board for servos
 Adafruit_PWMServoDriver pwm1 = Adafruit_PWMServoDriver(0x40);
 Adafruit_PWMServoDriver pwm2 = Adafruit_PWMServoDriver(0x41);
@@ -45,10 +45,14 @@ int rotState = 0; //the position within module (1-8)
 
 int oldPos = 0;
 int programState = 0;
-int servoMax = 310;// max pulse length for the HKSCM9-6
-int servoMin = 210;//min pulse length for the HKSCM9-6
-int servoTestMin = 310;//260; //Setting it to mid
-int servoTestMax = 210;//260; //Setting it to mid
+int servoMax = 340;// max pulse length for the HKSCM9-6
+int servoMin = 160;//min pulse length for the HKSCM9-6
+//int servoTestMin = 260;//260; //Setting it to mid
+//int servoTestMax = 260;//260; //Setting it to mid
+
+int servoTestMin = 260;//260; //Setting it to mid
+int servoTestMax = 260;//260; //Setting it to mid
+
 
 int inComing = 0;
 String servoSetTo = "";
@@ -135,9 +139,10 @@ void setup()
 	testServos("01010101010101010101010101010101");
 	servos();delay(500);
 	testServos("111111111111111111111111111111");
+	delay(500); 
+	testServos("00000000000000000000000000000000");
 	delay(100); 
 	tone(BEEP_PIN, 4000, 249);
-pal
 	while (resetpos != 1) 
 	{
 		moveStepper();
@@ -192,15 +197,21 @@ void moveStepper()
 		timer = micros(); //reset timer
 		if (on) 
 		{ //turn off
+			//LOW
 			digitalWrite(X_STEP_PIN, LOW);
+			//HIGH
 			digitalWrite(Y_STEP_PIN, HIGH);
+			//LOW -> HIGH
 			digitalWrite(Z_STEP_PIN, LOW);	
 			on = false;
 		}
 		else
 		{ //turn on
+			//HIGH
 			digitalWrite(X_STEP_PIN, HIGH);
+			//LOW
 			digitalWrite(Y_STEP_PIN, LOW);
+			//HIGH -> LOW
 			digitalWrite(Z_STEP_PIN, HIGH);
 			on = true;
 		}
@@ -344,5 +355,3 @@ void interruptD()
 	else 
 		cntRevolution = cntRevolution + (pulseperrevolution - remainder); //going under
 }
-
-
